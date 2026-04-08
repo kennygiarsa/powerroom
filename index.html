@@ -434,7 +434,7 @@
     <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
       <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-flame/30 bg-flame/5 mb-8 reveal">
         <span class="w-2 h-2 rounded-full bg-flame animate-pulse"></span>
-        <span class="text-sm text-flame font-medium">Every Friday at 7 PM</span>
+        <span class="text-sm text-flame font-medium">Every Sunday at 4 PM</span>
       </div>
       <h1 class="font-display text-[clamp(3.5rem,12vw,10rem)] leading-[0.9] tracking-wide mb-6 reveal reveal-delay-1">
         <span class="block text-white">STEP INTO</span>
@@ -866,12 +866,6 @@
   </div>
 
   <script>
-    // =============================================
-    // WHATSAPP CONFIGURATION
-    // Change this number to your actual WhatsApp
-    // number with country code, no + or spaces.
-    // Example: 15551234567
-    // =============================================
     const WHATSAPP_NUMBER = '08111571570';
 
     // Also update the footer display number (formatted)
@@ -1011,30 +1005,17 @@
 
       const fname = document.getElementById('fname').value.trim();
       const lname = document.getElementById('lname').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const visitdate = document.getElementById('visitdate').value;
+      const username = document.getElementById('username').value.trim();
       const message = document.getElementById('message').value.trim();
 
       // Validate required fields
-      if (!fname || !lname || !email) return;
-
-      // Format the visit date nicely if provided
-      let formattedDate = 'Not specified';
-      if (visitdate) {
-        const d = new Date(visitdate + 'T00:00:00');
-        formattedDate = d.toLocaleDateString('en-US', {
-          weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
-        });
-      }
+      if (!fname || !lname || !username) return;
 
       // Build the WhatsApp message
       let waMessage = `*POWER ROOM — New Visit Request*\n\n`;
       waMessage += `*Name:* ${fname} ${lname}\n`;
-      waMessage += `*Email:* ${email}\n`;
-      waMessage += `*Visiting On:* ${formattedDate}\n`;
-      if (message) {
+      waMessage += `*Username:* ${username}\n`;
         waMessage += `*Note:* ${message}\n`;
-      }
       waMessage += `\n_Sent from Power Room website_`;
 
       // Encode and open WhatsApp
